@@ -1,58 +1,57 @@
-var Queue = /** @class */ (function () {
-    function Queue() {
+"use strict";
+class Queue {
+    constructor() {
         this.items = [];
     }
-    Queue.prototype.enqueue = function (item) {
+    enqueue(item) {
         this.items.push(item);
-    };
-    Queue.prototype.dequeue = function () {
+    }
+    dequeue() {
         return this.items.shift();
-    };
-    Queue.prototype.peek = function () {
+    }
+    peek() {
         return this.items[0];
-    };
-    Queue.prototype.isEmpty = function () {
+    }
+    isEmpty() {
         return this.items.length === 0;
-    };
-    Queue.prototype.size = function () {
+    }
+    size() {
         return this.items.length;
-    };
-    return Queue;
-}());
-var Library = /** @class */ (function () {
-    function Library() {
+    }
+}
+class Library {
+    constructor() {
         this.requestQueue = new Queue();
     }
-    Library.prototype.requestBook = function (studentName, bookTitle) {
-        var bookRequest = { studentName: studentName, bookTitle: bookTitle };
+    requestBook(studentName, bookTitle) {
+        const bookRequest = { studentName, bookTitle };
         this.requestQueue.enqueue(bookRequest);
-    };
-    Library.prototype.processRequest = function () {
+    }
+    processRequest() {
         if (this.requestQueue.isEmpty()) {
             console.log("No book requests in the queue.");
         }
         else {
-            var nextRequest = this.requestQueue.dequeue();
+            const nextRequest = this.requestQueue.dequeue();
             if (nextRequest) {
-                console.log("The book \"".concat(nextRequest.bookTitle, "\" is now available and assigned to ").concat(nextRequest.studentName, "."));
+                console.log(`The book "${nextRequest.bookTitle}" is now available and assigned to ${nextRequest.studentName}.`);
             }
         }
-    };
-    Library.prototype.viewNextRequest = function () {
-        var nextRequest = this.requestQueue.peek();
+    }
+    viewNextRequest() {
+        const nextRequest = this.requestQueue.peek();
         if (nextRequest) {
-            console.log("Next request: ".concat(nextRequest.studentName, " is waiting for \"").concat(nextRequest.bookTitle, "\"."));
+            console.log(`Next request: ${nextRequest.studentName} is waiting for "${nextRequest.bookTitle}".`);
         }
         else {
             console.log("No requests in the queue.");
         }
-    };
-    Library.prototype.viewQueueSize = function () {
-        console.log("There are ".concat(this.requestQueue.size(), " book requests in the queue."));
-    };
-    return Library;
-}());
-var universityLibrary = new Library();
+    }
+    viewQueueSize() {
+        console.log(`There are ${this.requestQueue.size()} book requests in the queue.`);
+    }
+}
+const universityLibrary = new Library();
 universityLibrary.requestBook("Alice", "Introduction to TypeScript");
 universityLibrary.requestBook("Bob", "Advanced JavaScript");
 universityLibrary.requestBook("Charlie", "Data Structures in C++");
