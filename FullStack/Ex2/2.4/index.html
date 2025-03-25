@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Calculator</title>
+    <style src="test.css"></style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Marks Calculator</h2>
+
+    <label for="internalMarks">Internal Marks (out of 100):</label>
+    <input type="number" id="internalMarks" placeholder="Enter internal marks" min="0" max="100">
+
+    <label for="externalMarks">External Marks (out of 100):</label>
+    <input type="number" id="externalMarks" placeholder="Enter external marks" min="0" max="100">
+
+    <div>
+        <label for="internalWeight">Internal Weightage (%):</label>
+        <input type="range" id="internalWeight" min="0" max="100" value="40">
+        <span id="internalWeightSpan">40%</span>
+    </div>
+
+    <div>
+        <label for="externalWeight">External Weightage (%):</label>
+        <input type="range" id="externalWeight" min="0" max="100" value="60">
+        <span id="externalWeightSpan">60%</span>
+    </div>
+
+    <button onclick="calculateTotalMarks()">Calculate Total Marks</button>
+
+    <div class="output" id="result"></div>
+
+    <!-- Predefined Weightage Buttons -->
+    <button onclick="setPresetWeights(40, 60)">40% Internal / 60% External</button>
+    <button onclick="setPresetWeights(50, 50)">50% Internal / 50% External</button>
+    <button onclick="setPresetWeights(30, 70)">30% Internal / 70% External</button>
+</div>
+
+<script src="test.js"></script>
+
+</body>
+</html>
