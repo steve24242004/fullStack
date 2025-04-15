@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Lighting_1 = require("./Lighting");
+var ClimateControl_1 = require("./ClimateControl");
+var light = new Lighting_1.SmartHome.Lighting.Light();
+light.turnOn();
+light.turnOff();
+var ac = new ClimateControl_1.SmartHome.ClimateControl.AirConditioner();
+ac.turnOn();
+ac.setTemperature(24);
+ac.turnOff();
