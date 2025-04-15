@@ -1,2 +1,0 @@
-Hi da Macha..
-This is a new line that appended to sample.txt file.

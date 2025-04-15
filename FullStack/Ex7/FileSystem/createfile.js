@@ -1,6 +1,6 @@
 const fs = require('fs');
 const fileName = 'demo.txt';
-const content = 'Demo da naanu..';
+const content = 'This is a Demo..';
 
 fs.writeFile(fileName, content, (err) => {
   if (err) {
